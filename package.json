@@ -1,0 +1,25 @@
+{
+  "name": "banco_de_dados_imc",
+  "version": "1.0.0",
+  "description": "Projeto para cálculo de IMC usando Node.js e SQL",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "banco",
+    "dados",
+    "imc",
+    "CRUD"
+  ],
+  "author": "Felipe Zanoni da Rosa",
+  "license": "ISC",
+  "dependencies": {
+    "banco_de_dados_imc": "file:",
+    "body-parser": "^1.20.3",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "pg": "^8.12.0",
+    "readline": "^1.3.0"
+  }
+}

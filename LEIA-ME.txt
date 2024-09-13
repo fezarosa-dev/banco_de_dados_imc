@@ -1,0 +1,16 @@
+Na pasta SQL, há dois arquivos: um que contém o SQL necessário para criar a tabela no banco de dados WEB, e outro que é um script Node.js. Este script é responsável por gerar automaticamente dados fictícios de pessoas para o banco de dados e é utilizado exclusivamente para testar as funcionalidades do banco de dados.
+
+
+
+
+LOGIN BANCO DE DADOS:
+        host: 127.0.0.1
+        port: 5432
+        database: WEB
+        user: postgres
+        password: 2121
+
+
+SERVIDO WEB:
+        host: 127.0.0.1
+        port: 3000

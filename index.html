@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title id="idTitulo">Cadastro de Pessoas</title>
+    <script src="/script/style.js"></script>
+    <link rel="icon" type="image/png" href="/img/cadastro.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet">
+  </head>
+  <body>
+    <h1>Cadastro de Pessoas</h1>
+
+    <!-- Formulário de Cadastro -->
+    <form action="/cadastrar" method="post">
+      <fieldset>
+        <legend>Cadastro</legend>
+        Código: <input type="text" name="txtCodigo" /> <br />
+        Nome: <input type="text" name="txtNome" /> <br />
+        Data de Nascimento: <input type="date" name="txtDataNasc" /> <br />
+        Data e hora de cadastro:<input type="datetime-local" name="txtDataCadastro"> <br />
+        Casado:
+        <div class="checkbox-wrapper-10">
+          <input type="checkbox" id="cb5" class="tgl tgl-flip" name="txtCasado">
+          <label for="cb5" data-tg-on="SIM" data-tg-off="NÃO" class="tgl-btn"></label>
+        </div>
+        <br />
+        Altura: <input type="text" name="txtAltura" /> <br />
+        Peso: <input type="text" name="txtPeso" /> <br />
+        
+    <!-- Agrupamento dos botões -->
+    <div class="button-group">
+      <input type="submit" name="b1" value="Gravar" />
+      <input type="submit" name="b1" value="Alterar" />
+      <input type="submit" name="b1" value="Remover" />
+    </div>
+      </fieldset>
+    </form>
+    
+
+    <!-- Menu de Consultas -->
+    <form action="/consultar" method="post">
+      <fieldset>
+        <legend>Consultar Pessoas</legend>
+        <button type="submit" name="b1" value="Listar Todos">
+          Listar Todos
+        </button>
+        <button type="submit" name="b1" value="Acima do Peso">
+          Acima do Peso
+        </button>
+        <br />
+        Idade mínima: <input type="number" name="txtIdade" /> <br />
+        <button type="submit" name="b1" value="Mais de X Anos">
+          Mais de X Anos
+        </button>
+        <br />
+        Nome parcial: <input type="text" name="txtNome" /> <br />
+        <button type="submit" name="b1" value="Buscar por Nome">
+          Buscar por Nome
+        </button>
+        <br />
+        <button type="submit" name="b1" value="Casados">Casados</button>
+      </fieldset>
+    </form>
+  </body>
+</html>

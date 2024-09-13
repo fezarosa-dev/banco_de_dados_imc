@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabela de Pessoas</title>
+    <link rel="icon" type="image/png" href="/img/lista.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      th {
+        background-color: #f2f2f2;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Tabela de Pessoas</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Nome</th>
+          <th>Data de Nascimento</th>
+          <th>Data de Cadastro</th>
+          <th>Casado</th>
+          <th>Altura</th>
+          <th>Peso</th>
+          <th>Idade</th>
+          <th>IMC</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (pessoas && pessoas.length > 0) { %> <!-- Verifica se o array 'pessoas' existe e não está vazio -->
+          <% pessoas.forEach(pessoa => { %> <!-- Itera sobre cada objeto 'pessoa' no array -->
+            <!-- Calcular idade -->
+            <% 
+              const hoje = new Date(); // Cria um objeto Date com a data atual
+              const dataNascimento = new Date(pessoa.datanasc); 
+              let idade = hoje.getFullYear() - dataNascimento.getFullYear(); 
+              const m = hoje.getMonth() - dataNascimento.getMonth(); 
+              if (m < 0 || (m === 0 && hoje.getDate() < dataNascimento.getDate())) { // Verifica se ainda não completou o ano atual
+                idade--;
+              } 
+            %>
+      
+            <!-- Calcular IMC -->
+            <% 
+              const alturaMetros = pessoa.altura; 
+              const imc = pessoa.peso / (alturaMetros * alturaMetros); 
+            %>
+            <tr>
+              <td><%= pessoa.codigo %></td>
+              <td><%= pessoa.nome %></td>
+              <td><%= pessoa.datanasc %></td>
+              <td><%= pessoa.datacadastro %></td>
+              <td><%= pessoa.casado ? 'Sim' : 'Não' %></td>
+              <td><%= pessoa.altura %></td>
+              <td><%= pessoa.peso %></td>
+              <td><%= idade %></td>
+              <td><%= imc.toFixed(2) %></td>
+            </tr>
+          <% }); %> <!-- Fim da iteração sobre cada pessoa -->
+        <% } else { %>
+        <tr>
+          <td colspan="9">Nenhum dado encontrado.</td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </body>
+</html>
